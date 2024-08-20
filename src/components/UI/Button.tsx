@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { type ComponentPropsWithoutRef } from 'react';
 
 type ButtonProps = ComponentPropsWithoutRef<'button'> & {
   href?: never;
@@ -13,11 +13,9 @@ function isAnchorProps(props: ButtonProps | AnchorProps): props is AnchorProps {
 }
 
 export default function Button(props: ButtonProps | AnchorProps) {
-
-  if(isAnchorProps(props)) {
+  if (isAnchorProps(props)) {
     return <a className="button" {...props}></a>;
   }
 
   return <button className="button" {...props}></button>;
-
 }
